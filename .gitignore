@@ -1,0 +1,9 @@
+.idea/
+.vscode/
+listing-lib.iml
+__pycache__
+/venv/
+/var/log
+.env
+*.pyc
+*.log
