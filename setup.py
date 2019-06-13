@@ -7,7 +7,7 @@ with open("README.md", "r", encoding="utf8") as rm:
 
 setup_args = dict(
     name='pytest-jira',
-    version='0.1',
+    version='0.2',
     setup_requires=['setuptools-git-version'],
     long_description=README,
     long_description_content_type="text/markdown",

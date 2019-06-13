@@ -10,7 +10,7 @@ from jira_test.jira import JiraTestCase, JiraTestResult
 from jira_test.jira.listener import Listener
 
 
-class PLTestBase(TestCase):
+class TestBase(TestCase):
     ISSUE_KEYS = None
     FOLDER = None
 
@@ -23,10 +23,10 @@ class PLTestBase(TestCase):
                 cls.listener.start_suite()
             except:
                 cls.listener = None
-        super(PLTestBase, cls).setUpClass()
+        super(TestBase, cls).setUpClass()
 
     def setUp(self):
-        super(PLTestBase, self).setUp()
+        super(TestBase, self).setUp()
         self._testInputData = None
         self._testExpectedData = None
         self._actualResult = None
@@ -70,7 +70,7 @@ class PLTestBase(TestCase):
         return test_result
 
     def tearDown(self):
-        super(PLTestBase, self).tearDown()
+        super(TestBase, self).tearDown()
         if self.listener:
             try:
                 test_case_key = self._get_test_case_key()
@@ -84,7 +84,7 @@ class PLTestBase(TestCase):
     def tearDownClass(cls):
         if cls.listener:
             cls.listener.end_suite(name=(datetime.datetime.now() + datetime.timedelta(hours=7)).strftime(DATETIME_FORMAT) + ' ' + str(cls.__module__))
-        super(PLTestBase, cls).tearDownClass()
+        super(TestBase, cls).tearDownClass()
 
     def list2reason(self, exc_list):
         if exc_list and exc_list[-1][0] is self:
