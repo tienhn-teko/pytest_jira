@@ -30,6 +30,7 @@ class TestBase(TestCase):
         self._testInputData = None
         self._testExpectedData = None
         self._actualResult = None
+        self._description = ''
         self._startTime = time.time()
 
     def _feed_error_and_failure(self):
@@ -45,10 +46,11 @@ class TestBase(TestCase):
         pre_condition = docstring.long_description
         input_data = self._testInputData
         expected_data = self._testExpectedData
+        description = self._description
         test_case = JiraTestCase(name=name, pre_condition=pre_condition,
                                  input_data=input_data,
                                  expected_data=expected_data,
-                                 folder=self.FOLDER)
+                                 folder=self.FOLDER, description=description)
         test_case_key = test_case.create_test_case(self.ISSUE_KEYS)
         return test_case_key
 

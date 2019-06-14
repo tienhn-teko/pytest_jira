@@ -63,7 +63,7 @@ class JiraTestCase(object):
                 'type': 'STEP_BY_STEP',
                 'steps': [
                     {
-                        'description': '',
+                        'description': self.description,
                         'testData': '<pre>' + json_dump(self.input_data,
                                                         indent=4) + '</pre>',
                         'expectedResult': '<pre>' + json_dump(
